@@ -1,0 +1,151 @@
+[
+	{
+		"name": "coord",
+		"type": "record",
+		"fields": [
+			{
+				"name": "lon",
+				"type": "FLOAT"
+			},
+			{
+				"name": "lat",
+				"type": "FLOAT"
+			}
+		]
+	},
+	{
+		"name": "weather",
+		"type": "record",
+		"mode": "repeated",
+		"fields": [
+			{
+				"name": "id",
+				"type": "INTEGER"
+			},
+			{
+				"name": "main",
+				"type": "STRING"
+			},
+			{
+				"name": "description",
+				"type": "STRING"
+			},
+			{
+				"name": "icon",
+				"type": "STRING"
+			}
+		]
+	},
+	{
+		"name": "base",
+		"type": "STRING"
+	},
+	{
+		"name": "main",
+		"type": "record",
+		"fields": [
+			{
+				"name": "temp",
+				"type": "FLOAT"
+			},
+			{
+				"name": "feels_like",
+				"type": "FLOAT"
+			},
+			{
+				"name": "temp_min",
+				"type": "FLOAT"
+			},
+			{
+				"name": "temp_max",
+				"type": "FLOAT"
+			},
+			{
+				"name": "pressure",
+				"type": "INTEGER"
+			},
+			{
+				"name": "humidity",
+				"type": "INTEGER"
+			}
+		]
+	},
+	{
+		"name": "visibility",
+		"type": "INTEGER"
+	},
+	{
+		"name": "wind",
+		"type": "record",
+		"fields": [
+			{
+				"name": "speed",
+				"type": "FLOAT"
+			},
+			{
+				"name": "deg",
+				"type": "INTEGER"
+			},
+			{
+				"name": "gust",
+				"type": "FLOAT"
+			}
+		]
+	},
+	{
+		"name": "clouds",
+		"type": "record",
+		"fields": [
+			{
+				"name": "all",
+				"type": "INTEGER"
+			}
+		]
+	},
+	{
+		"name": "dt",
+		"type": "TIMESTAMP"
+	},
+	{
+		"name": "sys",
+		"type": "record",
+		"fields": [
+			{
+				"name": "type",
+				"type": "INTEGER"
+			},
+			{
+				"name": "id",
+				"type": "INTEGER"
+			},
+			{
+				"name": "country",
+				"type": "STRING"
+			},
+			{
+				"name": "sunrise",
+				"type": "INTEGER"
+			},
+			{
+				"name": "sunset",
+				"type": "INTEGER"
+			}
+		]
+	},
+	{
+		"name": "timezone",
+		"type": "INTEGER"
+	},
+	{
+		"name": "id",
+		"type": "INTEGER"
+	},
+	{
+		"name": "name",
+		"type": "STRING"
+	},
+	{
+		"name": "cod",
+		"type": "INTEGER"
+	}
+]
