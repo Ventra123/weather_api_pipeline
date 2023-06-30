@@ -48,7 +48,7 @@ def write_file_to_gcs(file_name, ndjson):
         blob = bucket.blob(destination_blob_name)
         blob.upload_from_string(ndjson)
     except Exception as e:
-        logging.error(e)
+        logging.error(e) # TODO: where is logging defined?
 
 
 

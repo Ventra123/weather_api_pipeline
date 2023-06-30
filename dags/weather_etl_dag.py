@@ -58,6 +58,7 @@ import_api = PythonOperator(
     task_id="import_from_api", python_callable=import_weather_data, dag=dag
 )
 
+# You structured this well to pass in the variables above as parameters below
 load_bq = PythonOperator(
     task_id="load_into_bigquery",
     python_callable=load_table,
@@ -74,4 +75,7 @@ load_bq = PythonOperator(
     dag=dag,
 )
 
+# TODO: add a task to transform the data using dbt once loaded into BigQuery
+
+# TODO: does this actually work when run in cloud composer?
 import_api >> load_bq
