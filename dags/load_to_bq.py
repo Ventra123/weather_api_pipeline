@@ -6,6 +6,7 @@ import json
 import re
 
 
+#TODO: it makes more sense to group the two functions within a class so they can all share the same variables without duplicating efforts
 def load_table(bucket_name, file_name, project_id, dataset_id, table_id, partition_field, write_disposition, schema_file):
 
 
@@ -49,6 +50,7 @@ def load_table(bucket_name, file_name, project_id, dataset_id, table_id, partiti
         print(f"Data {write_disposition} job failed.")
 
     # Check if the schema has changed and update it accordingly
+    # TODO: add a behavior to raise an error that the schema has changed and stop the process from continuing
     table = bigquery_client.get_table(table_ref)
     if table.schema != load_job.schema:
         table.schema = load_job.schema
@@ -70,7 +72,7 @@ def create_table_if_not_exists(bigquery_client, storage_client, project_id, data
     except NotFound:
         bucket = storage_client.get_bucket(bucket_name)
         blob = bucket.blob(schema_file)
-        file_contents = blob.download_as_bytes()
+        file_contents = blob.download_as_bytes() # TODO: you can delete this as it's not used
         schema = json.loads(blob.download_as_string(client=None))
         table_prefix = f"{project_id}.{dataset_id}"
         table = bigquery.Table(f"{table_prefix}.{table_id}")
@@ -85,7 +87,7 @@ def create_table_if_not_exists(bigquery_client, storage_client, project_id, data
         raise e
 
 
-
+# TODO: you can delete this
 # bucket_name = "us-west1-etl-composer-5680954a-bucket"
 # file_name = "daily_load_weather_data/20230624-174149__data.ndjson"
 # project_id = "dwh-weather-api"

@@ -19,5 +19,5 @@ The 'weather_schema.json' file maps the schema for the BigQuery table
 Light touch data transformation is performed when ingesting the data from the API call to convert the JSON file to NDJSON file format as per BigQuery's table load requirements. Date partitioning is applied before loading into BigQuery
 
 ## Not in Scope
-- Testing and Validation
-- Error Handling and Monitoring
+- Testing and Validation # TODO: we should add testing and validation through things like dbt after you transform the data
+- Error Handling and Monitoring # TODO: This will be built into airflow by design. We can talk through how it looks and feels
